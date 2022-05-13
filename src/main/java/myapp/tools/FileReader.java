@@ -1,4 +1,4 @@
-package tools;
+package myapp.tools;
 
 import java.io.*;
 import java.nio.charset.Charset;

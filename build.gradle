@@ -17,6 +17,6 @@ test {
 }
 
 run {
-    mainClassName = "apps.ApplicationHelloWorld"
+    mainClassName = "myapp.app.Main"
     args = []
 }
