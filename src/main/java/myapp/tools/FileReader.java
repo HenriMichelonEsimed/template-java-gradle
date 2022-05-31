@@ -8,6 +8,11 @@ public class FileReader {
     private java.io.InputStreamReader f;
     private int last;
 
+    /*
+    * Open a text file using the UNICODE encoding
+    * fileName : path of the file
+    * Terminate the application on error
+    */
     public FileReader(String fileName) {
         try {
             f = new java.io.FileReader(fileName);
@@ -21,6 +26,12 @@ public class FileReader {
         }
     }
 
+    /*
+    * Open a text file using the given encoding
+    * fileName : path of the file
+    * charset : the character encoding of the file
+    * Terminate the application on error
+    */
     public FileReader(String fileName, Charset charset) {
         try {
             f = new java.io.FileReader(fileName, charset);
@@ -34,6 +45,11 @@ public class FileReader {
         }
     }
 
+    /*
+    * Return the current character from the stream and read the next character
+    * returns : the current character. 
+    * Terminate the application on error
+    */
     public char readChar() {
         if (last == -1) {
             System.err.println("Reading past end of file");
@@ -49,10 +65,18 @@ public class FileReader {
         return (char) r;
     }
 
+    /*
+    * Indicate if we reached the end od the stream
+    * return true if all the characters have been read
+    */
     public boolean isEndOfFile() {
         return last == -1;
     }
 
+    /*
+    * Create a FileReader stream from any InputStreamReader
+    * Terminate the application on error
+    */
     public FileReader(InputStreamReader is) {
         try {
             f = is;
@@ -63,6 +87,10 @@ public class FileReader {
         }
     }
 
+    /*
+    * Create a FileReader stream from an UNICODE string
+    * Terminate the application on error
+    */
     public static FileReader fromString(String content) {
         InputStreamReader isr = new InputStreamReader(new ByteArrayInputStream( content.getBytes(StandardCharsets.UTF_8)) );;
         return new FileReader(isr);
